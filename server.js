@@ -31,7 +31,8 @@ app.get('/ui/madi.png', function (req, res) {
 
 
 app.get('/getuserlist', function (req, res) {
-    
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     pool.query('SELECT * FROM users', (err, result) => {
       if(err)
       {
