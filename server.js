@@ -29,6 +29,13 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+app.get('/load.gif', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'load.gif'));
+});
+app.get('/photo.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'photo.png'));
+});
+
 
 app.get('/getuserlist', function (req, res) {
      res.header("Access-Control-Allow-Origin", "*");
