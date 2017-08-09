@@ -79,6 +79,245 @@
             right: 20px;
             display: none;
         }
+		.popupcard {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.popupcard .popupcard-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.popupcard .popupcard-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.popupcard .popupcard-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.popupcard .popupcard-heading.image .popupcard-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.popupcard .popupcard-heading.image .popupcard-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.popupcard .popupcard-heading.image .popupcard-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.popupcard .popupcard-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.popupcard .popupcard-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.popupcard .popupcard-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.popupcard .popupcard-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.popupcard .popupcard-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.popupcard .popupcard-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.popupcard .popupcard-comments .comments-collapse-toggle a,
+.popupcard .popupcard-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.popupcard-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.popupcard.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.popupcard.people:first-child {
+    margin-left: 0;
+}
+
+.popupcard.people .popupcard-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.popupcard.people .popupcard-top.green {
+    background-color: #53a93f;
+}
+
+.popupcard.people .popupcard-top.blue {
+    background-color: #427fed;
+}
+
+.popupcard.people .popupcard-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.popupcard.people .popupcard-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.popupcard.people .popupcard-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.popupcard.people .popupcard-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.popupcard.hoverpopupcard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.popupcard.hoverpopupcard .popupcardheader {
+    background-size: contain;
+    height: 135px;
+}
+
+.popupcard.hoverpopupcard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.popupcard.hoverpopupcard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.popupcard.hoverpopupcard .info {
+    padding: 4px 8px 10px;
+}
+
+.popupcard.hoverpopupcard .info .title {
+    margin-bottom: 4px;
+    font-size: 18px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.popupcard.hoverpopupcard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.popupcard.hoverpopupcard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
     </style>
 </head>
 
@@ -119,7 +358,13 @@
             <center><img src="https://s2.postimg.org/qsna9ppi1/load.gif" alt="Loading..." style="width:50px;height:50px" /></center>
         </div>
     </div>
-
+<div id="ProfileModal" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-sm">
+    <div class="modal-content ProfileModalContent">
+      
+    </div>
+  </div>
+</div>
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page"
         data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
@@ -195,7 +440,7 @@
                                     <div class="content">
                                     <p>`+ user.uname + ` <br />
                                        `+ user.email + `</p>
-                                    <p><a class="btn btn-default" target="_blank" href="http://`+ user.email.replace("@gmail.com", "")  + `.imad.hasura-app.io">View App</a> <button type="button" class="btn btn-default">View Profile</button></p>
+                                    <p><a class="btn btn-default" target="_blank" href="http://`+ user.email.replace("@gmail.com", "")  + `.imad.hasura-app.io">View App</a> <button type="button" data-uid="`+ user.uids + `" data-uemail="`+ user.email + `" class="btn btn-default btnprofile">View Profile</button></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -211,6 +456,9 @@
                     bgblurapply(element);
                 }
             });
+			$(".btnprofile").click(function () {
+				loadpopup($(this));
+			});
         }
         // background create --------------------------------------------------------------------------
         function bgblurapply(element) {
@@ -260,6 +508,150 @@
 
             });
         }
+		// Load popup content --------------------------------------------------------------------------
+		function loadpopup(element)
+		{
+		var load =`<center><img src="https://s2.postimg.org/qsna9ppi1/load.gif" alt="Loading..." style="width:50px;height:50px" /></center>`;
+		$(".ProfileModalContent").html(load);
+		var uid =element.data("uid");
+		var uemail =element.data("uemail");
+		$("#ProfileModal").modal();
+		if(uid)
+		{
+				$.ajax({
+                    url: "https://www.googleapis.com/plus/v1/people/"+uid+"?fields=aboutMe%2CageRange%2Cbirthday%2Ccover%2CcurrentLocation%2CdisplayName%2Cemails%2Cgender%2Cimage%2Coccupation%2Corganizations%2CplacesLived%2Cskills&key=AIzaSyBttjHnOitV-7BSkDMA8AHuvhEQ-MiJ8mw",
+                    type: "GET",
+                    dataType: "json",
+                    crossDomain: true,
+                    success: function (data) {
+                        createpopupdisplay(uid,uemail,data);
+                    },
+                    error: function () {
+                        alert('Unable to connect to the server');
+                        $('#ProfileModal').modal('hide');
+                    }
+                });
+		
+		}
+		else{
+					var z=	`<div class="container">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6">
+
+            <div class="popupcard hoverpopupcard">
+                <div class="popupcardheader" style="background: url('https://s2.postimg.org/kv599fnd5/cover.jpg')">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="https://s1.postimg.org/hemrdys4v/photo.png">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        `+ uemail +`
+                    </div>
+                    </div>
+                   
+                <div class="bottom">
+                    <a class="btn btn-primary btn-sm" target="_blank" href="http://`+ uemail.replace("@gmail.com", "")  + `.imad.hasura-app.io">
+                       View App
+                    </a>
+                    <button class="btn btn-danger btn-sm" rel="publisher" href="" data-dismiss="modal">
+                        Close
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>`;
+$(".ProfileModalContent").html(z);
+		}
+		}
+		// Create popup content --------------------------------------------------------------------------
+		function createpopupdisplay(uid,uemail,data)
+		{
+		
+			var coverimg = "https://s2.postimg.org/kv599fnd5/cover.jpg";
+			if(data.cover)
+			{
+				coverimg = data.cover.coverPhoto.url;
+			}
+			
+			var img = "https://s1.postimg.org/hemrdys4v/photo.png";
+			if(data.image.url)
+			{
+				img = data.image.url.replace("?sz=50", "?sz=100");
+			}
+			var gender ="";
+			if(data.gender)
+			{
+			gender =""
+			gender = '<div class="desc">'+data.gender+'</div>'
+			}
+			
+			var places ="";
+			if(data.placesLived)
+			{
+			   places = '<div><b>Places: </b> <br />';
+				for(var i =0;i<data.placesLived.length; i++)
+				{
+					places += '<a target="_blank" href="http://maps.google.com/?q='+data.placesLived[i].value+'">'+data.placesLived[i].value+'</a> <br />'
+				}
+			   places += '</div>';
+			}
+			
+			var org ="";
+			if(data.organizations)
+			{
+			   org = '<div><b>organizations: </b> <br />';
+				for(var j =0;j<data.organizations.length; j++)
+				{
+					org += '<a target="_blank" href="https://www.google.co.in/search?q='+data.organizations[j].name+'">'+data.organizations[j].name+(data.organizations[j].title ? ' - ' + data.organizations[j].title: '')+(data.organizations[j].type ? ' - ' + data.organizations[j].type: '')+(data.organizations[j].endDate ? ' - upto ' + data.organizations[j].endDate : '')+'</a> <br />'
+				}
+			   org += '</div>';
+			}
+		
+			var z=	`<div class="container">
+	<div class="row">
+		<div class="col-lg-3 col-sm-6">
+
+            <div class="popupcard hoverpopupcard">
+                <div class="popupcardheader" style="background: url('`+ coverimg +`')">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="`+ img +`">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        `+ data.displayName +`
+                    </div>
+                    <div class="desc">`+uemail+`</div>
+                    `+gender+`
+                    </div>
+                    <div style="text-align:left;padding:10px">
+                    `+places+`
+                     `+org+`
+                </div>
+                <div class="bottom">
+                    <a class="btn btn-primary btn-sm" target="_blank" href="http://`+ uemail.replace("@gmail.com", "")  + `.imad.hasura-app.io">
+                       View App
+                    </a>
+                    <button class="btn btn-danger btn-sm" rel="publisher" href="" data-dismiss="modal">
+                        Close
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>`;
+$(".ProfileModalContent").html(z);
+		}
         // Event Handlers------------------------------------------------------------------------------------
         $(window).scroll(function () {
             if ($(this).scrollTop() > 50) {
@@ -286,6 +678,7 @@
             createdisplay();
             $(this).hide();
         });
+		
         $(".searchtxt").keyup(function () {
             var t = $(this);
             $(".clearbtn").toggle(Boolean(t.val()));
@@ -626,3 +1019,7 @@
 </body>
 
 </html>
+
+
+
+
