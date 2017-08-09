@@ -689,6 +689,9 @@ $(".ProfileModalContent").html(z);
 	    $( ".btnprofile" ).on( "click", function() {
            loadpopup($(this));
           });
+          $('body').on('click','.btnprofile',function(){
+            loadpopup($(this));
+          });
     </script>
     <script>
         var mul_table = [
