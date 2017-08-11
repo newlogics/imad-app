@@ -56,15 +56,19 @@ app.get('/getuserlist', function (req, res) {
 
 function restart(dinosses,commitid,profile)
 {
-    console.log(`restart ${dinosses}! ${commitid} ! ${profile}`);
+    var d = new Date();
+    var n = d.toString(); 
+    console.log(` ${n} restart ! ${dinosses}! ${commitid} ! ${profile}`);
 }
 
-timers.setTimeout( restart("1","2","30") , 120000);
+timers.setTimeout( restart("1","2","30") , 60000);
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
 var port = 80;
 app.listen(port, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
+        var d = new Date();
+    var n = d.toString(); 
+  console.log(`${n} IMAD course app listening on port ${port}!`);
 });
