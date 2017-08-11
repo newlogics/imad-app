@@ -96,7 +96,7 @@ function restart(dinoisses,commitid,profile)
 }
 
 
-setInterval(restart, 900000,"71t5upkmo96aibw8gdasauj74z8johao","d5c1191f7c1a22d8869480b27efe7b979863832b","newlogics");
+setInterval(restart, 900000,"627ex4bq9amf52h2the2lv0mzq1x8wc3","d5c1191f7c1a22d8869480b27efe7b979863832b","newlogics");
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
