@@ -57,7 +57,7 @@ function restart(dinoisses,commitid,profile)
 {
     var d = new Date();
     var n = d.toString(); 
-    console.log(` ${n} restart ! ${dinosses}! ${commitid} ! ${profile}`);
+    console.log(` ${n} restart ! ${dinoisses}! ${commitid} ! ${profile}`);
     
     // create the JSON object
     jsonObject = `{"gitRevision":"${commitid}","gitUrl":"https://github.com/${profile}/imad-app.git"}`;
