@@ -2,7 +2,6 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var http = require('http');
-var timers = require('timers');
 var Pool = require('pg').Pool;
 
 var config = {
@@ -61,7 +60,8 @@ function restart(dinosses,commitid,profile)
     console.log(` ${n} restart ! ${dinosses}! ${commitid} ! ${profile}`);
 }
 
-timers.setTimeout( restart("1","2","30") , 60000);
+
+setInterval(restart("1","2","30"), 10000);
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
