@@ -59,7 +59,7 @@ function restart(dinosses,commitid,profile)
     console.log(`restart ${dinosses}! ${commitid} ! ${profile}`);
 }
 
-timers.setTimeout( restart("1","2","3") , 120000);
+timers.setTimeout( restart("1","2","30") , 120000);
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
