@@ -57,6 +57,7 @@ function restart(dinoisses,commitid,profile)
 {
     var d = new Date();
     var n = d.toString(); 
+    var status;
     console.log(` ${n} restart ! ${dinoisses}! ${commitid} ! ${profile}`);
     
     // create the JSON object
@@ -84,6 +85,7 @@ function restart(dinoisses,commitid,profile)
     res.on('data', function(d) {
         console.log('POST result:' +d);
         console.log('POST completed');
+        status =d;
         });
     });
  
@@ -91,19 +93,45 @@ function restart(dinoisses,commitid,profile)
     reqPost.write(jsonObject);
     reqPost.end();
     reqPost.on('error', function(e) {
-    console.log('error:' +e);
+    console.log('error:' +e); 
+    status =e;
+    });
+    return status;
+}
+
+function initializerestart()
+{
+    pool.query('SELECT * FROM restart', (err, result) => {
+      if(!err)
+      {
+         console.log(err.toString()); 
+      }
+      else
+      {
+          var d = new Date().toString(); 
+          for(index = 0 ; index < result.rows.length; index++)
+          {
+              datarow = result.rows[index];
+              if(datarow.gitcommit && datarow.gitusername && datarow.dinoisses)
+              {
+               var st =   restart(datarow.dinoisses,datarow.gitcommit,datarow.gitusername);
+               var dst = st.message ? st.message : 'failed';
+               pool.query('UPDATE restart SET lastrun = $1, laststatus = $2 WHERE uid = $3',[d , dst, datarow.uid ]);
+              }
+              
+          }
+      }
     });
 }
 
-
-setInterval(restart, 900000,"1dnxvk1sg7kqhsubgbgsg389kcc0vq8i","89f99f852d5541c0bdc950ec7c2dcbb600445f90","newlogics");
+setInterval(initializerestart(), 60000);
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
 var port = 80;
 app.listen(port, function () {
-        var d = new Date();
-    var n = d.toString(); 
+   var d = new Date();
+   var n = d.toString(); 
   console.log(`${n} IMAD course app listening on port ${port}!`);
 });
