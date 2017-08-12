@@ -134,7 +134,7 @@ function restartstatus(uid, dst)
     pool.query('UPDATE restart SET lastrun = $1, laststatus = $2 WHERE uid = $3',[d , dst, uid ]);
 }
 
-setInterval(initializerestart(), 60000);
+setInterval(initializerestart(), 900000);
 //900000
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
