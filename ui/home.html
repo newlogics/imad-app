@@ -431,6 +431,11 @@
         function eraseCookie(name) {
             createCookie(name, "", -1);
         }
+        
+        if(!readCookie('zuid'))
+        {
+            window.location="/login";
+        }
     </script>
     
     <script>
