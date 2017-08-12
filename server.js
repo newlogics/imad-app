@@ -2,8 +2,9 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var https = require('https');
-var cookieParser = require('cookie-parser')
+//var cookieParser = require('cookie-parser')
 var Pool = require('pg').Pool;
+var bodyParser = require('body-parser')
 
 var config = {
   user: 'pk155mail',
@@ -15,7 +16,9 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-app.use(cookieParser())
+//app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 var pool = new Pool(config);
 
