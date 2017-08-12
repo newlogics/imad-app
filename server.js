@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var https = require('https');
-var cookieParser = require('cookie-parser')
+//var cookieParser = require('cookie-parser')
 var Pool = require('pg').Pool;
 
 var config = {
@@ -16,7 +16,7 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-app.use(cookieParser())
+app.use(express.cookieParser())
 
 var pool = new Pool(config);
 
