@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -266,7 +266,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body style="display:none" id="body">
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container"> 
@@ -435,6 +435,10 @@
         if(!readCookie('zuid'))
         {
             window.location="/login";
+        }
+        else
+        {
+            document.getElementById('body').style.display = 'block';
         }
     </script>
     
