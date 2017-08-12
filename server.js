@@ -128,6 +128,7 @@ function initializerestart()
     });
 }
 
+
 function restartstatus(uid, dst)
 {
     var d = new Date().toString(); 
