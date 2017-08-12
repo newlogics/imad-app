@@ -84,7 +84,8 @@ function restart(dinoisses,commitid,profile,uid)
     res.on('data', function(d) {
         console.log('POST result:' +d);
         console.log('POST completed');
-        if(d.success ===  true)
+        var jd =JSON.parse(d);
+        if(jd.success ===  true)
         {
            restartstatus(uid, 'SUCCESS');
         }
