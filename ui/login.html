@@ -289,7 +289,7 @@
         $(document).ready(function () {
             if (readCookie('zuid'))
             {
-                location.reload();
+                 window.location="/login";
             }
 
             var auth2;
@@ -311,6 +311,7 @@
                 createCookie('fname', user.getBasicProfile().ofa, 1);
                 createCookie('email', user.getBasicProfile().U3, 1);
                 createCookie('iurl', user.getBasicProfile().Paa, 1);
+                window.location="/login";
             };
 
             var onFailure = function (error) {
