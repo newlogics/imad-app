@@ -53,11 +53,10 @@ app.get('/getuserlist', function (req, res) {
     });
 });
 
-function restart(dinoisses,commitid,profile)
+function restart(dinoisses,commitid,profile,uid)
 {
     var d = new Date();
     var n = d.toString(); 
-    var status;
     console.log(` ${n} restart ! ${dinoisses}! ${commitid} ! ${profile}`);
     
     // create the JSON object
@@ -85,7 +84,14 @@ function restart(dinoisses,commitid,profile)
     res.on('data', function(d) {
         console.log('POST result:' +d);
         console.log('POST completed');
-        status =d;
+        if(d.success ===  true)
+        {
+           restartstatus(uid, 'SUCCESS');
+        }
+        else
+        {
+            restartstatus(uid, 'FAILED');
+        }
         });
     });
  
@@ -94,9 +100,8 @@ function restart(dinoisses,commitid,profile)
     reqPost.end();
     reqPost.on('error', function(e) {
     console.log('error:' +e); 
-    status =e;
+    restartstatus(uid, 'FAILED');
     });
-    return status;
 }
 
 function initializerestart()
@@ -108,20 +113,24 @@ function initializerestart()
       }
       else
       {
-          var d = new Date().toString(); 
+          
           for(index = 0 ; index < result.rows.length; index++)
           {
               datarow = result.rows[index];
               if(datarow.gitcommit && datarow.gitusername && datarow.dinoisses)
               {
-               var st =   restart(datarow.dinoisses,datarow.gitcommit,datarow.gitusername);
-               var dst = st.message ? st.message : 'failed';
-               pool.query('UPDATE restart SET lastrun = $1, laststatus = $2 WHERE uid = $3',[d , dst, datarow.uid ]);
+                restart(datarow.dinoisses,datarow.gitcommit,datarow.gitusername,datarow.uid);
               }
               
           }
       }
     });
+}
+
+function restartstatus(uid, dst)
+{
+    var d = new Date().toString(); 
+    pool.query('UPDATE restart SET lastrun = $1, laststatus = $2 WHERE uid = $3',[d , dst, uid ]);
 }
 
 setInterval(initializerestart(), 60000);
