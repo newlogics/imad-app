@@ -102,7 +102,7 @@ function restart(dinoisses,commitid,profile)
 function initializerestart()
 {
     pool.query('SELECT * FROM restart', (err, result) => {
-      if(!err)
+      if(err)
       {
          console.log(err); 
       }
