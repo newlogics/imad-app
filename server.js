@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var https = require('https');
+var cookieParser = require('cookie-parser')
 var Pool = require('pg').Pool;
 
 var config = {
@@ -15,6 +16,7 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
+app.use(cookieParser())
 
 var pool = new Pool(config);
 
@@ -58,6 +60,17 @@ app.get('/restartserver', function (req, res) {
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      initializerestart();
      res.send("Restart Initialized");
+});
+
+app.get('/24x7', function (req, res) {
+    if(req.cookies.zuid)
+    {
+      res.sendFile(path.join(__dirname, 'ui', 'home.html'));
+    }
+    else
+    {
+        res.sendFile(path.join(__dirname, 'ui', 'login.html')); 
+    }
 });
 
 function restart(dinoisses,commitid,profile,uid)
