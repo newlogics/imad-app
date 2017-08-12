@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keep your site up 24x7</title>
+    <style>
+        btns3d {
+            transition: all .08s linear;
+            position: relative;
+            outline: medium none;
+            -moz-outline-style: none;
+            border: 0px;
+            margin-right: 10px;
+            margin-top: 15px;
+        }
+        
+        .btns3d:focus {
+            outline: medium none;
+            -moz-outline-style: none;
+        }
+        
+        .btns3d:active {
+            top: 9px;
+        }
+        
+        .btns-default {
+            box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #adadad, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #fff;
+        }
+        
+        .btns-primary {
+            box-shadow: 0 0 0 1px #428bca inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #357ebd, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #428bca;
+        }
+        
+        .btns-success {
+            box-shadow: 0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #5cb85c;
+        }
+        
+        .btns-info {
+            box-shadow: 0 0 0 1px #5bc0de inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #46b8da, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #5bc0de;
+        }
+        
+        .btns-warning {
+            box-shadow: 0 0 0 1px #f0ad4e inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #eea236, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #f0ad4e;
+        }
+        
+        .btns-danger {
+            box-shadow: 0 0 0 1px #c63702 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #C24032, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+            background-color: #c63702;
+        }
+        
+        body {
+            background-color: white;
+        }
+        
+        #loginbox {
+            margin-top: 30px;
+        }
+        
+        #loginbox > div:first-child {
+            padding-bottom: 10px;
+        }
+        
+        .iconmelon {
+            display: block;
+            margin: auto;
+        }
+        
+        #form > div {
+            margin-bottom: 25px;
+        }
+        
+        #form > div:last-child {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .panel {
+            background-color: transparent;
+        }
+        
+        .panel-body {
+            padding-top: 30px;
+            background-color: rgba(2555, 255, 255, .3);
+        }
+        
+        #particles {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            z-index: -2;
+        }
+        
+        .iconmelon,
+        .im {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: block;
+            fill: #525151;
+        }
+        
+        .iconmelon:after,
+        .im:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .quote-card {
+            background: #fff;
+            color: #222222;
+            padding: 20px;
+            padding-left: 50px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+        }
+        
+        .quote-card p {
+            font-size: 22px;
+            line-height: 1.5;
+            margin: 0;
+            max-width: 80%;
+        }
+        
+        .quote-card cite {
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+            font-weight: 200;
+            opacity: 0.8;
+        }
+        
+        .quote-card:before {
+            font-family: Georgia, serif;
+            content: "“";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 5em;
+            color: rgba(238, 238, 238, 0.8);
+            font-weight: normal;
+        }
+        
+        .quote-card:after {
+            font-family: Georgia, serif;
+            content: "”";
+            position: absolute;
+            bottom: -110px;
+            line-height: 100px;
+            right: -32px;
+            font-size: 25em;
+            color: rgba(238, 238, 238, 0.8);
+            font-weight: normal;
+        }
+        
+        @media (max-width: 640px) {
+            .quote-card:after {
+                font-size: 22em;
+                right: -25px;
+            }
+             .quote-card p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0;
+            max-width: 80%;
+        }
+        .fnt
+        {
+            font-size: xx-large
+        }
+        }
+        
+        .quote-card.blue-card {
+            background: #0078FF;
+            color: #ffffff;
+            box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+        }
+        
+        .quote-card.blue-card:before,
+        .quote-card.blue-card:after {
+            color: #5FAAFF;
+        }
+        
+        .quote-card.green-card {
+            background: #00970B;
+            color: #ffffff;
+            box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+        }
+        
+        .quote-card.green-card:before,
+        .quote-card.green-card:after {
+            color: #59E063;
+        }
+        
+        .quote-card.red-card {
+            background: #F61E32;
+            color: #ffffff;
+            box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+        }
+        
+        .quote-card.red-card:before,
+        .quote-card.red-card:after {
+            color: #F65665;
+        }
+        
+        .quote-card.yellow-card {
+            background: #F9A825;
+            color: #222222;
+            box-shadow: 0 1px 2px rgba(34, 34, 34, 0.12), 0 2px 4px rgba(34, 34, 34, 0.24);
+        }
+        
+        .quote-card.yellow-card:before,
+        .quote-card.yellow-card:after {
+            color: #FBC02D;
+        }
+        
+        .threedtext {
+            text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+        .navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+    </style>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container"> 
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+            <a target="_blank" href="#" class="navbar-brand">Keep your IMAD site up 24x7</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> 
+                        <strong>Nombre</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
+                                        <p class="text-left small">correoElectronico@email.com</p>
+                                        <p class="text-left">
+                                            <a href="#" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br /><br />&nbsp;
+    <div class="container">
+
+
+        <div id="loginbox" class="mainbox col-md-7 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Details required to keep site 24x7</div>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+
+                       
+                        <div class="input-group" style="width: 100%">
+                             <div class="pull-right"><a href="" >Where to find?</a></div>
+                            <span >Github Username:</span>
+                            <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">
+                           
+                        </div>
+                        <div class="input-group" style="width: 100%">
+                             <div class="pull-right"><a href="" >Where to find?</a></div>
+                            <span >Github Last Commit ID:</span>
+                            <input id="uer" type="text" class="form-control" name="user" value="" placeholder="User">
+                           
+                        </div>
+                        <div class="input-group" style="width: 100%">
+                             <div class="pull-right"><a href="" >Where to find?</a></div>
+                            <span >Cookie dinoisses:</span>
+                            <input id="usr" type="text" class="form-control" name="user" value="" placeholder="User">
+                           
+                        </div>
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-sm-12 controls">
+                                 <button  type="submit"  id="start-button" class="btn btn-success  btn-md ">Save & Start</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Service status</div>
+                </div>
+
+                <div class="panel-body">
+                        Service status: <b>Started & Running</b><br />
+                         <button type="button" id="stop-button" class="btn btn-danger btn-md" style="margin-top: 10px">Stop</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Log</div>
+                </div>
+
+                <div class="panel-body">
+                        Last Restart @ 8/11/2017 4:57:11 PM IST<br />
+                        Status: success
+                </div>
+            </div>
+
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="container">
+                <blockquote class="quote-card">
+                    <p>
+                        <span class="text-danger">Attention!</span> Use this service if you realy in need to keep the site
+                        up. Keeping the site up 24x7 may increase load to IMAD servers.
+                    </p>
+
+                    <cite>
+                If you no more need to keep the site up.Please login back and click stop button.
+              </cite>
+                </blockquote>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="particles"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+        function createCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            createCookie(name, "", -1);
+        }
+    </script>
+    
+    <script>
+        !function (a) { function b(b, d) { function e() { if (w) { $canvas = a('<canvas class="pg-canvas"></canvas>'), v.prepend($canvas), p = $canvas[0], q = p.getContext("2d"), f(); for (var b = Math.round(p.width * p.height / d.density), c = 0; b > c; c++) { var e = new l; e.setStackPos(c), x.push(e) } a(window).on("resize", function () { h() }), a(document).on("mousemove", function (a) { y = a.pageX, z = a.pageY }), B && !A && window.addEventListener("deviceorientation", function () { D = Math.min(Math.max(-event.beta, -30), 30), C = Math.min(Math.max(-event.gamma, -30), 30) }, !0), g(), o("onInit") } } function f() { p.width = v.width(), p.height = v.height(), q.fillStyle = d.dotColor, q.strokeStyle = d.lineColor, q.lineWidth = d.lineWidth } function g() { if (w) { s = a(window).width(), t = a(window).height(), q.clearRect(0, 0, p.width, p.height); for (var b = 0; b < x.length; b++)x[b].updatePosition(); for (var b = 0; b < x.length; b++)x[b].draw(); E || (r = requestAnimationFrame(g)) } } function h() { for (f(), i = x.length - 1; i >= 0; i--)(x[i].position.x > v.width() || x[i].position.y > v.height()) && x.splice(i, 1); var a = Math.round(p.width * p.height / d.density); if (a > x.length) for (; a > x.length;) { var b = new l; x.push(b) } else a < x.length && x.splice(a); for (i = x.length - 1; i >= 0; i--)x[i].setStackPos(i) } function j() { E = !0 } function k() { E = !1, g() } function l() { switch (this.stackPos, this.active = !0, this.layer = Math.ceil(3 * Math.random()), this.parallaxOffsetX = 0, this.parallaxOffsetY = 0, this.position = { x: Math.ceil(Math.random() * p.width), y: Math.ceil(Math.random() * p.height) }, this.speed = {}, d.directionX) { case "left": this.speed.x = +(-d.maxSpeedX + Math.random() * d.maxSpeedX - d.minSpeedX).toFixed(2); break; case "right": this.speed.x = +(Math.random() * d.maxSpeedX + d.minSpeedX).toFixed(2); break; default: this.speed.x = +(-d.maxSpeedX / 2 + Math.random() * d.maxSpeedX).toFixed(2), this.speed.x += this.speed.x > 0 ? d.minSpeedX : -d.minSpeedX }switch (d.directionY) { case "up": this.speed.y = +(-d.maxSpeedY + Math.random() * d.maxSpeedY - d.minSpeedY).toFixed(2); break; case "down": this.speed.y = +(Math.random() * d.maxSpeedY + d.minSpeedY).toFixed(2); break; default: this.speed.y = +(-d.maxSpeedY / 2 + Math.random() * d.maxSpeedY).toFixed(2), this.speed.x += this.speed.y > 0 ? d.minSpeedY : -d.minSpeedY } } function m(a, b) { return b ? void (d[a] = b) : d[a] } function n() { v.find(".pg-canvas").remove(), o("onDestroy"), v.removeData("plugin_" + c) } function o(a) { void 0 !== d[a] && d[a].call(u) } var p, q, r, s, t, u = b, v = a(b), w = !!document.createElement("canvas").getContext, x = [], y = 0, z = 0, A = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i), B = !!window.DeviceOrientationEvent, C = 0, D = 0, E = !1; return d = a.extend({}, a.fn[c].defaults, d), l.prototype.draw = function () { q.beginPath(), q.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, d.particleRadius / 2, 0, 2 * Math.PI, !0), q.closePath(), q.fill(), q.beginPath(); for (var a = x.length - 1; a > this.stackPos; a--) { var b = x[a], c = this.position.x - b.position.x, e = this.position.y - b.position.y, f = Math.sqrt(c * c + e * e).toFixed(2); f < d.proximity && (q.moveTo(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY), d.curvedLines ? q.quadraticCurveTo(Math.max(b.position.x, b.position.x), Math.min(b.position.y, b.position.y), b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY) : q.lineTo(b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY)) } q.stroke(), q.closePath() }, l.prototype.updatePosition = function () { if (d.parallax) { if (B && !A) { var a = (s - 0) / 60; pointerX = (C - -30) * a + 0; var b = (t - 0) / 60; pointerY = (D - -30) * b + 0 } else pointerX = y, pointerY = z; this.parallaxTargX = (pointerX - s / 2) / (d.parallaxMultiplier * this.layer), this.parallaxOffsetX += (this.parallaxTargX - this.parallaxOffsetX) / 10, this.parallaxTargY = (pointerY - t / 2) / (d.parallaxMultiplier * this.layer), this.parallaxOffsetY += (this.parallaxTargY - this.parallaxOffsetY) / 10 } switch (d.directionX) { case "left": this.position.x + this.speed.x + this.parallaxOffsetX < 0 && (this.position.x = v.width() - this.parallaxOffsetX); break; case "right": this.position.x + this.speed.x + this.parallaxOffsetX > v.width() && (this.position.x = 0 - this.parallaxOffsetX); break; default: (this.position.x + this.speed.x + this.parallaxOffsetX > v.width() || this.position.x + this.speed.x + this.parallaxOffsetX < 0) && (this.speed.x = -this.speed.x) }switch (d.directionY) { case "up": this.position.y + this.speed.y + this.parallaxOffsetY < 0 && (this.position.y = v.height() - this.parallaxOffsetY); break; case "down": this.position.y + this.speed.y + this.parallaxOffsetY > v.height() && (this.position.y = 0 - this.parallaxOffsetY); break; default: (this.position.y + this.speed.y + this.parallaxOffsetY > v.height() || this.position.y + this.speed.y + this.parallaxOffsetY < 0) && (this.speed.y = -this.speed.y) }this.position.x += this.speed.x, this.position.y += this.speed.y }, l.prototype.setStackPos = function (a) { this.stackPos = a }, e(), { option: m, destroy: n, start: k, pause: j } } var c = "particleground"; a.fn[c] = function (d) { if ("string" == typeof arguments[0]) { var e, f = arguments[0], g = Array.prototype.slice.call(arguments, 1); return this.each(function () { a.data(this, "plugin_" + c) && "function" == typeof a.data(this, "plugin_" + c)[f] && (e = a.data(this, "plugin_" + c)[f].apply(this, g)) }), void 0 !== e ? e : this } return "object" != typeof d && d ? void 0 : this.each(function () { a.data(this, "plugin_" + c) || a.data(this, "plugin_" + c, new b(this, d)) }) }, a.fn[c].defaults = { minSpeedX: .1, maxSpeedX: .7, minSpeedY: .1, maxSpeedY: .7, directionX: "center", directionY: "center", density: 1e4, dotColor: "#666666", lineColor: "#666666", particleRadius: 7, lineWidth: 1, curvedLines: !1, proximity: 100, parallax: !0, parallaxMultiplier: 5, onInit: function () { }, onDestroy: function () { } } } (jQuery),
+            function () { for (var a = 0, b = ["ms", "moz", "webkit", "o"], c = 0; c < b.length && !window.requestAnimationFrame; ++c)window.requestAnimationFrame = window[b[c] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[b[c] + "CancelAnimationFrame"] || window[b[c] + "CancelRequestAnimationFrame"]; window.requestAnimationFrame || (window.requestAnimationFrame = function (b) { var c = (new Date).getTime(), d = Math.max(0, 16 - (c - a)), e = window.setTimeout(function () { b(c + d) }, d); return a = c + d, e }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function (a) { clearTimeout(a) }) } ();
+
+        $(function () {
+
+            $('#particles').particleground({
+                minSpeedX: 0.1,
+                maxSpeedX: 0.7,
+                minSpeedY: 0.1,
+                maxSpeedY: 0.7,
+                directionX: 'center', // 'center', 'left' or 'right'. 'center' = dots bounce off edges
+                directionY: 'center', // 'center', 'up' or 'down'. 'center' = dots bounce off edges
+                density: 10000, // How many particles will be generated: one particle every n pixels
+                dotColor: '#eee',
+                lineColor: '#eee',
+                particleRadius: 7, // Dot size
+                lineWidth: 1,
+                curvedLines: true,
+                proximity: 100, // How close two dots need to be before they join
+                parallax: false
+            });
+
+        });
+    </script>
+</body>
+
+</html>
