@@ -65,15 +65,10 @@ app.get('/restartserver', function (req, res) {
 });
 
 app.get('/24x7', function (req, res) {
-    if(req.cookies)
-    {
-        console.log(req.cookies);
-      res.sendFile(path.join(__dirname, 'ui', 'home.html'));
-    }
-    else
-    {
+        res.sendFile(path.join(__dirname, 'ui', 'home.html')); 
+});
+app.get('/login', function (req, res) {
         res.sendFile(path.join(__dirname, 'ui', 'login.html')); 
-    }
 });
 
 function restart(dinoisses,commitid,profile,uid)
