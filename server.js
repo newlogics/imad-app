@@ -53,6 +53,13 @@ app.get('/getuserlist', function (req, res) {
     });
 });
 
+app.get('/restartserver', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     initializerestart();
+     res.send("Restart Initialized");
+});
+
 function restart(dinoisses,commitid,profile,uid)
 {
     var d = new Date();
@@ -107,7 +114,27 @@ function restart(dinoisses,commitid,profile,uid)
 
 function initializerestart()
 {
-    pool.query('SELECT * FROM restart', (err, result) => {
+    pool.query("SELECT * FROM restart WHERE runkey ='START'", (err, result) => {
+      if(err)
+      {
+         console.log(err); 
+      }
+      else
+      {
+          
+          for(index = 0 ; index < result.rows.length; index++)
+          {
+              datarow = result.rows[index];
+              if(datarow.gitcommit && datarow.gitusername && datarow.dinoisses)
+              {
+                restart(datarow.dinoisses,datarow.gitcommit,datarow.gitusername,datarow.uid);
+              }
+              
+          }
+      }
+    });
+    
+     pool.query("SELECT * FROM restart WHERE runkey ='ME'", (err, result) => {
       if(err)
       {
          console.log(err); 
