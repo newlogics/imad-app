@@ -104,7 +104,7 @@ function initializerestart()
     pool.query('SELECT * FROM restart', (err, result) => {
       if(!err)
       {
-         console.log(err.toString()); 
+         console.log(err); 
       }
       else
       {
