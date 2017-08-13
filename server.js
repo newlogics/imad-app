@@ -122,6 +122,21 @@ app.get('/restartserver', function (req, res) {
      res.send("Restart Initialized");
 });
 
+app.post('/24x7data', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     pool.query('SELECT * FROM restart where uid = $1',[req.body.zuid], (err, result) => {
+      if(err)
+      {
+         res.status(500).send(err.toString()); 
+      }
+      else
+      {
+          res.send(JSON.stringify(result.rows));
+      }
+    });
+});
+
 app.get('/24x7', function (req, res) {
         res.sendFile(path.join(__dirname, 'ui', 'home.html')); 
 });
