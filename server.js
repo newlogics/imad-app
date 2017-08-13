@@ -87,8 +87,13 @@ app.post('/validate', function (req, res) {
             console.log(req.body.zuid +" " + req.body.uemail);
             if(result.rows.length == 0)
               {
-                  pool.query('INSERT INTO restart (uid,email) VALUES ($1, $2)',[req.body.zuid,req.body.uemail ]);
-                   console.log("inserted");
+                  pool.query('INSERT INTO restart (uid,email) VALUES ($1, $2)',[req.body.zuid,req.body.uemail ],(err, result) => {
+                    if(err)
+                     {
+                        res.status(500).send("failed "+ err); 
+                     }
+                      
+                  });
               }
             res.send("success"); 
           }
