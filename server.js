@@ -72,7 +72,7 @@ app.get('/getuserlist', function (req, res) {
     });
 });
 
-app.get('/validate', function (req, res) {
+app.post('/validate', function (req, res) {
      res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     pool.query('SELECT * FROM restart where uid = $1',[req.body.zuid] ,(err, result) => {
