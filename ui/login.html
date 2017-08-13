@@ -328,8 +328,8 @@
                 success: function (data) {
                      window.location="/24x7";
                 },
-                error: function () {
-                    alert('Unable to connect to the server');
+                error: function (err) {
+                    alert('Unable to connect to the server' + err);
                 }
             });
 
