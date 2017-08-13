@@ -95,14 +95,14 @@ app.post('/validate', function (req, res) {
                      }
                      else
                      {
-                         res.send("success"); 
+                         res.send('{"success": true}'); 
                      }
                       
                   });
               }
               else
               {
-                  res.send("success"); 
+                  res.send('{"success": true}'); 
               }
             
           }
