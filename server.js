@@ -137,6 +137,21 @@ app.post('/24x7data', function (req, res) {
     });
 });
 
+app.post('/24x7update', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     pool.query('UPDATE restart SET gitcommit = $1, gitusername = $2,dinoisses = $3 WHERE uid = $4',[ req.body.Commit, req.body.Username, req.body.dinoisses, req.body.zuid ], (err, result) => {
+      if(err)
+      {
+         res.status(500).send(err.toString()); 
+      }
+      else
+      {
+          res.send('{"success": true}'); 
+      }
+    });
+});
+
 app.get('/24x7', function (req, res) {
         res.sendFile(path.join(__dirname, 'ui', 'home.html')); 
 });
@@ -218,7 +233,8 @@ function initializerestart()
       }
     });
     
-     pool.query("SELECT * FROM restart WHERE runkey ='ME'", (err, result) => {
+     setInterval(function() {
+      pool.query("SELECT * FROM restart WHERE runkey ='ME'", (err, result) => {
       if(err)
       {
          console.log(err); 
@@ -237,6 +253,8 @@ function initializerestart()
           }
       }
     });
+      },10000);
+
 }
 
 
