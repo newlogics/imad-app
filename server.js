@@ -90,6 +90,7 @@ app.post('/validate', function (req, res) {
                   pool.query('INSERT INTO restart (uid,email) VALUES ($1, $2)',[req.body.zuid,req.body.uemail ],(err) => {
                     if(err)
                      {
+                        console.log("failed "+ err));
                         res.status(500).send("failed "+ err); 
                      }
                       
