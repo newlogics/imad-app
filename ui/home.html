@@ -519,7 +519,7 @@
                             $('#smallstatus').html("Stopped");
                             document.getElementById('stop-button').style.display = 'none';
                         } 
-                        if(data[0].lastrun && data[0].laststatus )
+                        if(data[0].lastrun.trim().length !=0 && data[0].laststatus.trim().length !=0 )
                         {
                          $('#fullstatus').html("Last Restart @ " + data[0].lastrun + "<br />Status:" + data[0].laststatus);
                         }
