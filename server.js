@@ -57,6 +57,43 @@ app.get('/getuserlist', function (req, res) {
     });
 });
 
+app.get('/getuserlist', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    pool.query('SELECT * FROM users', (err, result) => {
+      if(err)
+      {
+         res.status(500).send(err.toString()); 
+      }
+      else
+      {
+          res.send(JSON.stringify(result.rows));
+      }
+    });
+});
+
+app.get('/validate', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    pool.query('SELECT * FROM restart where uid = $1',[req.body.zuid] ,(err, result) => {
+      if(err)
+      {
+         res.status(500).send(err.toString()); 
+      }
+      else
+      {
+          console.log(req.body.zuid +" " + req.body.uemail);
+          if(result.rows.length == 0)
+          {
+              pool.query('INSERT INTO restart VALUES ($1, $2)',[req.body.zuid,req.body.uemail ]);
+               console.log("inserted");
+          }
+           res.send("success"); 
+      }
+    });
+});
+
+
 app.get('/restartserver', function (req, res) {
      res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
