@@ -211,8 +211,8 @@ function restart(dinoisses,commitid,profile,uid)
     var reqPost = https.request(optionspost, function(res) {
 
     res.on('data', function(d) {
-        console.log('POST result:' +d);
-        console.log('POST completed');
+        //console.log('POST result:' +d);
+        //console.log('POST completed');
         var jd =JSON.parse(d);
         if(jd.success ===  true)
         {
