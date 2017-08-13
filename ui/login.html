@@ -330,6 +330,7 @@
                     window.location="/24x7";
                 },
                 error: function (err) {
+                    $('#LoadingModal').modal('hide');
                     alert('Unable to connect to the server' + err.responseText);
                 }
             });
