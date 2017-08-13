@@ -519,7 +519,14 @@
                             $('#smallstatus').html("Stopped");
                             document.getElementById('stop-button').style.display = 'none';
                         } 
-                        $('#fullstatus').html("Last Restart @ " + data[0].lastrun + "<br />Status:" + data[0].laststatus);
+                        if(data[0].lastrun && data[0].laststatus )
+                        {
+                         $('#fullstatus').html("Last Restart @ " + data[0].lastrun + "<br />Status:" + data[0].laststatus);
+                        }
+                        else
+                        {
+                            $('#fullstatus').html("No logs found");
+                        }
 
                         document.getElementById('cont').style.display = 'block';
                         $('#LoadingModal').modal('hide');
