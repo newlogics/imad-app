@@ -82,13 +82,20 @@ app.post('/validate', function (req, res) {
       }
       else
       {
-          console.log(req.body.zuid +" " + req.body.uemail);
-          if(result.rows.length == 0)
+          if(req.body && req.body.zuid && req.body.uemail)
           {
-              pool.query('INSERT INTO restart VALUES ($1, $2)',[req.body.zuid,req.body.uemail ]);
-               console.log("inserted");
+            console.log(req.body.zuid +" " + req.body.uemail);
+            if(result.rows.length == 0)
+              {
+                  pool.query('INSERT INTO restart (uid,email) VALUES ($1, $2)',[req.body.zuid,req.body.uemail ]);
+                   console.log("inserted");
+              }
+            res.send("success"); 
           }
-           res.send("success"); 
+          else
+          {
+               res.status(500).send("Required fields can't empty"); 
+          }
       }
     });
 });
