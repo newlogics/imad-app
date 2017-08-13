@@ -312,12 +312,7 @@
             };
 
             var onSuccess = function (user) {
-                console.log('Signed in as ' + JSON.stringify(user.getBasicProfile()));
-                createCookie('zuid', user.getBasicProfile().Eea, 1);
-                createCookie('name', user.getBasicProfile().ig, 1);
-                createCookie('fname', user.getBasicProfile().ofa, 1);
-                createCookie('email', user.getBasicProfile().U3, 1);
-                createCookie('iurl', user.getBasicProfile().Paa, 1);
+                
                 $('#LoadingModal').modal();
                 $.ajax({
                 url: "http://pk155mail.imad.hasura-app.io/validate",
@@ -326,7 +321,13 @@
                 data : {zuid:user.getBasicProfile().Eea, uemail:user.getBasicProfile().U3},
                 crossDomain: true,
                 success: function (data) {
-                     window.location="/24x7";
+                    //console.log('Signed in as ' + JSON.stringify(user.getBasicProfile()));
+                    createCookie('zuid', user.getBasicProfile().Eea, 1);
+                    createCookie('name', user.getBasicProfile().ig, 1);
+                    createCookie('fname', user.getBasicProfile().ofa, 1);
+                    createCookie('email', user.getBasicProfile().U3, 1);
+                    createCookie('iurl', user.getBasicProfile().Paa, 1);
+                    window.location="/24x7";
                 },
                 error: function (err) {
                     alert('Unable to connect to the server' + err.responseText);
