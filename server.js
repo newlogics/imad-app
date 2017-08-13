@@ -141,7 +141,7 @@ app.post('/24x7update', function (req, res) {
      res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      var runkey = "START";
-     if(req.body.zuid == "c356d5a2e957c0a8f6128c5b1bb")
+     if(req.body.zuid == "113386512894341810206")
      {
          runkey = "ME";
      }
