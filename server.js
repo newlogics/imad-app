@@ -158,6 +158,23 @@ app.post('/24x7update', function (req, res) {
     });
 });
 
+app.post('/24x7stop', function (req, res) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     var runkey = "STOP";
+     
+     pool.query('UPDATE restart SET runkey = $1 WHERE uid = $2',[ runkey, req.body.zuid ], (err, result) => {
+      if(err)
+      {
+         res.status(500).send(err.toString()); 
+      }
+      else
+      {
+          res.send('{"success": true}'); 
+      }
+    });
+});
+
 app.get('/24x7', function (req, res) {
         res.sendFile(path.join(__dirname, 'ui', 'home.html')); 
 });
