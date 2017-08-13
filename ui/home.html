@@ -151,7 +151,7 @@
 
             .quote-card:before {
                 font-family: Georgia, serif;
-                content: "“";
+                content: "â";
                 position: absolute;
                 top: 10px;
                 left: 10px;
@@ -162,7 +162,7 @@
 
             .quote-card:after {
                 font-family: Georgia, serif;
-                content: "”";
+                content: "â";
                 position: absolute;
                 bottom: -110px;
                 line-height: 100px;
@@ -292,7 +292,7 @@
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <p class="text-center">
-                                                <img src="#" alt="" id="uimg"/>
+                                                <img src="#" alt="" id="uimg" />
                                             </p>
                                         </div>
                                         <div class="col-lg-8">
@@ -328,21 +328,21 @@
 
 
                         <div class="input-group Usernamegrp" style="width: 100%">
-                            <div class="pull-right"><a href="">Where to find?</a></div>
+                            <div class="pull-right"><a data-toggle="modal" data-target="#userModal" style="cursor:help">Where to find?</a></div>
                             <span>Github Username:</span>
                             <input id="Username" type="text" class="form-control" name="Username" value="" placeholder="Github Username" maxlength="20">
 
                         </div>
                         <div class="input-group Commitgrp" style="width: 100%">
-                            <div class="pull-right"><a href="">Where to find?</a></div>
+                            <div class="pull-right"><a data-toggle="modal" data-target="#commitModal" style="cursor:help">Where to find?</a></div>
                             <span>Github Last Commit ID:</span>
                             <input id="Commit" type="text" class="form-control" name="Commit" value="" placeholder="Github Last Commit ID" maxlength="40">
 
                         </div>
                         <div class="input-group dinoissesgrp" style="width: 100%">
-                            <div class="pull-right"><a href="">Where to find?</a></div>
+                            <div class="pull-right"><a data-toggle="modal" data-target="#cookieModal" style="cursor:help">Where to find?</a></div>
                             <span>Cookie dinoisses:</span>
-                            <input id="dinoisses" type="text" class="form-control" name="dinoisses" value="" placeholder="Cookie dinoisses"  maxlength="32">
+                            <input id="dinoisses" type="text" class="form-control" name="dinoisses" value="" placeholder="Cookie dinoisses" maxlength="32">
 
                         </div>
                         <div class="form-group">
@@ -403,6 +403,67 @@
             <div class="modal-content">
                 <center><img src="https://s2.postimg.org/qsna9ppi1/load.gif" alt="Loading..." style="width:50px;height:50px" /></center>
             </div>
+        </div>
+    </div>
+
+    <div id="commitModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Github Last Commit ID</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Click commit in your Gihub repositary:<br /><img src="https://s17.postimg.org/q7bckt9n3/commit1.jpg" alt="" class="img img-responsive" /></p>
+                    <p>Copy the commit id which you need to run in server:<br /><img src="https://s17.postimg.org/j81vz6z2n/commit2.jpg" alt="" class="img img-responsive" /></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="userModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Github Username</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Login to Github to get your username:<br /><img src="https://s17.postimg.org/tfkfbllan/user.png" alt="" class="img img-responsive" /></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="cookieModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Github Username</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Login to IMAD console => open google chrome developer options => application tab => cookies => dinoisses<br /><img src="https://s17.postimg.org/rca03xlhr/cookie.png" alt="" class="img img-responsive" /></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -480,8 +541,8 @@
             });
 
         }
-        
-        
+
+
         $( document ).ready(function() {
             if(!readCookie('zuid'))
             {
@@ -507,7 +568,7 @@
                     success: function (data) {
 
                         $('#Username').val(data[0].gitusername);
-                        $('#Commit').val(data[0].gitcommit); 
+                        $('#Commit').val(data[0].gitcommit);
                         $('#dinoisses').val(data[0].dinoisses);
                         if (data[0].runkey == "START" || data[0].runkey == "ME")
                         {
@@ -518,7 +579,7 @@
                         {
                             $('#smallstatus').html("Stopped");
                             document.getElementById('stop-button').style.display = 'none';
-                        } 
+                        }
                         if(data[0].lastrun.trim().length !=0 && data[0].laststatus.trim().length !=0 )
                         {
                          $('#fullstatus').html("Last Restart @ " + data[0].lastrun + "<br />Status:" + data[0].laststatus);
@@ -537,10 +598,10 @@
                     }
                 });
 
-               
+
             }
-           
-           
+
+
 
         });
 
@@ -555,7 +616,7 @@
             $(".dinoissesgrp").removeClass("has-error");
             if (!(Username && Commit && dinoisses))
             {
-            
+
                 if (!Username)
                 {
                     $(".Usernamegrp").addClass("has-error");
@@ -646,11 +707,11 @@
                     }
                 });
             }
-           
-            
+
+
             return false;
 
-           
+
         });
     </script>
 
