@@ -280,6 +280,13 @@
     </div>
 
     <div id="particles"></div>
+<div id="LoadingModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog  modal-sm">
+    <div class="modal-content">
+      <center><img src="https://s2.postimg.org/qsna9ppi1/load.gif" alt="Loading..." style="width:50px;height:50px" /></center>
+    </div>
+  </div>
+</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
@@ -311,7 +318,7 @@
                 createCookie('fname', user.getBasicProfile().ofa, 1);
                 createCookie('email', user.getBasicProfile().U3, 1);
                 createCookie('iurl', user.getBasicProfile().Paa, 1);
-                
+                $('#LoadingModal').modal();
                 $.ajax({
                 url: "http://pk155mail.imad.hasura-app.io/validate",
                 type: "POST",
